@@ -1,0 +1,76 @@
+#include <stdio.h>
+
+void moverTorre(int passosRestantes) {
+    if (passosRestantes == 0) {
+        return; 
+    }
+    printf("Direita\n");
+    moverTorre(passosRestantes - 1); 
+}
+
+void moverBispo(int movimentosVerticais, int movimentosHorizontais) {
+    if (movimentosVerticais == 0) {
+        return; 
+    }
+
+
+    for (int i = 0; i < movimentosHorizontais; i++) {
+        printf("Direita\n");
+    }
+
+    printf("Cima\n");
+
+    
+    moverBispo(movimentosVerticais - 1, movimentosHorizontais);
+}
+
+void moverRainha(int passosRestantes) {
+    if (passosRestantes == 0) {
+        return;
+    }
+    printf("Cima\n");
+    moverRainha(passosRestantes - 1);
+}
+
+void moverCavalo() {
+    int vertical = 0;
+    int horizontal = 0;
+
+    printf("Movimento do Cavalo:\n");
+
+    for (vertical = 0; vertical < 3; vertical++) {
+        if (vertical == 2) {
+           
+            for (horizontal = 0; horizontal < 2; horizontal++) {
+                if (horizontal == 0) {
+                    printf("Direita\n");
+                    continue; 
+                } else {
+                    break; 
+                }
+            }
+        } else {
+            printf("Cima\n");
+        }
+    }
+}
+
+
+int main() {
+    
+    printf("Movimento da Torre:\n");
+    moverTorre(3);
+
+    
+    printf("\nMovimento do Bispo:\n");
+    moverBispo(2, 2);
+
+   
+    printf("\nMovimento da Rainha:\n");
+    moverRainha(3);
+
+    printf("\n");
+    moverCavalo();
+
+    return 0;
+}
