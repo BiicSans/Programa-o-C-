@@ -1,0 +1,48 @@
+#include <stdio.h>
+
+int main() {
+   
+    printf("Movimento da Torre:\n");
+    for (int i = 0; i < 3; i++) {
+        printf("Direita\n");
+    }
+
+    
+    printf("\nMovimento do Bispo:\n");
+    int i = 0;
+    while (i < 3) {
+        printf("Diagonal Superior Direita\n");
+        i++;
+    }
+
+    printf("\nMovimento da Rainha:\n");
+    int j = 0;
+    do {
+        printf("Cima\n");
+        j++;
+    } while (j < 3);
+
+ 
+    printf("\nMovimento do Cavalo:\n");
+
+    int movimentosBaixo = 2; 
+    int movimentosEsquerda = 1; 
+
+   
+    for (int linha = 0; linha < movimentosBaixo; linha++) {
+        printf("Baixo\n");
+
+       
+        if (linha == movimentosBaixo - 1) {
+            int contador = 0;
+
+        
+            while (contador < movimentosEsquerda) {
+                printf("Esquerda\n");
+                contador++;
+            }
+        }
+    }
+
+    return 0;
+}
