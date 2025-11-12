@@ -4,6 +4,7 @@ int main() {
     int tabuleiro[10][10];
     int i, j;
 
+    // Inicializa o tabuleiro com 0 (água)
     for (i = 0; i < 10; i++) {
         for (j = 0; j < 10; j++) {
             tabuleiro[i][j] = 0;
@@ -16,11 +17,24 @@ int main() {
         tabuleiro[linhaH][colunaH + j] = 3;
     }
 
-  
+    
     int linhaV = 5, colunaV = 5;
     for (i = 0; i < 3; i++) {
         tabuleiro[linhaV + i][colunaV] = 3;
     }
+
+    
+    for (i = 0; i < 4; i++) {
+        tabuleiro[i][i] = 3;
+    }
+
+   
+    for (i = 1; i < 4; i++) {
+        tabuleiro[i][9 - i] = 3;
+    }
+
+    
+    printf("===== TABULEIRO BATALHA NAVAL =====\n\n");
 
     for (i = 0; i < 10; i++) {
         for (j = 0; j < 10; j++) {
@@ -28,6 +42,8 @@ int main() {
         }
         printf("\n");
     }
+
+    printf("\nLegenda: 0 = Água 🌊 | 3 = Navio 🚢\n");
 
     return 0;
 }
