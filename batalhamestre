@@ -1,1 +1,66 @@
+#include <stdio.h>
 
+int main() {
+    int tabuleiro[10][10];
+    int i, j;
+
+    
+    for (i = 0; i < 10; i++) {
+        for (j = 0; j < 10; j++) {
+            tabuleiro[i][j] = 0;
+        }
+    }
+
+    
+    for (j = 3; j < 6; j++) {
+        tabuleiro[2][j] = 3;
+    }
+
+    
+    for (i = 5; i < 8; i++) {
+        tabuleiro[i][5] = 3;
+    }
+
+    
+    for (i = 0; i < 4; i++) {
+        tabuleiro[i][i] = 3;
+    }
+
+   
+    for (i = 1; i < 4; i++) {
+        tabuleiro[i][9 - i] = 3;
+    }
+
+    for (i = 1; i <= 3; i++) {
+        tabuleiro[i][4 - i] = 5;
+        tabuleiro[i][4 + i] = 5;
+    }
+
+    
+    int centro = 6;
+    for (i = centro - 2; i <= centro + 2; i++) {
+        if (tabuleiro[i][2] != 3) tabuleiro[i][2] = 5;
+        if (tabuleiro[centro][i - 4 + 2] != 3) tabuleiro[centro][i - 4 + 2] = 5;
+    }
+
+   
+    int linha = 5, coluna = 8;
+    tabuleiro[linha][coluna] = 5;
+    tabuleiro[linha - 1][coluna] = 5;
+    tabuleiro[linha + 1][coluna] = 5;
+    tabuleiro[linha][coluna - 1] = 5;
+    tabuleiro[linha][coluna + 1] = 5;
+
+    printf("===== TABULEIRO BATALHA NAVAL =====\n\n");
+
+    for (i = 0; i < 10; i++) {
+        for (j = 0; j < 10; j++) {
+            printf("%d ", tabuleiro[i][j]);
+        }
+        printf("\n");
+    }
+
+    printf("\nLegenda: 0 = Água  | 3 = Navio  | 5 = Habilidade \n");
+
+    return 0;
+}
